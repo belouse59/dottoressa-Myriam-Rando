@@ -11,16 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const data = {
             name: form.name.value,
-            email: form.email.value,
             phone: form.phone.value,
-            message: form.message.value,
-            formType: "contact"
+            message: form.message.value
         };
 
         status.innerText = "Invio in corso...";
 
         try {
-            const res = await fetch("/api/form/submit", {
+            const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
@@ -31,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 form.reset();
 
                 // optional: redirect to WhatsApp
-               // window.open("https://wa.me/393713397393", "_blank");
+                window.open("https://wa.me/39XXXXXXXXXX", "_blank");
 
             } else {
                 status.innerText = "Errore invio";
@@ -95,7 +93,12 @@ function sendToWhatsApp() {
     const message = input.value;
 
     const phoneNumber = "+34667218526"; // replace with your number
-    const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+    const defaultMessage = "Ciao, vorrei avere alcune informazioni.";
+    
+    const finalMessage = message && message.trim() !== ""
+        ? message
+        : defaultMessage;
+    const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(finalMessage);
 
     window.open(url, "_blank");
 
@@ -165,13 +168,13 @@ elements.forEach(el => observerReveal.observe(el));
 const trustItems = document.querySelectorAll(".trust-item");
 
 const trustObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add("visible");
-      }, i * 100);
-    }
-  });
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add("visible");
+            }, i * 100);
+        }
+    });
 }, { threshold: 0.4 });
 
 trustItems.forEach(item => trustObserver.observe(item));
