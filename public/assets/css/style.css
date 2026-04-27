@@ -69,22 +69,40 @@ section.visible {
 
 /* HERO */
 .hero {
-    height: 100vh;
-    background: url('../images/doctor.jpg') center/cover no-repeat;
     position: relative;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.hero-img {
+    position: absolute;
+    inset: 0;
+    /* top:0 left:0 right:0 bottom:0 */
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 40%;
+
+    z-index: 0;
+}
+
+/* overlay stays above image */
 .overlay {
     position: absolute;
     inset: 0;
     background: rgba(15, 23, 42, 0.6);
+    z-index: 1;
 }
 
+/* content on top */
 .hero-inner {
     position: relative;
+    z-index: 2;
     text-align: center;
     color: white;
     max-width: 700px;
@@ -661,6 +679,12 @@ textarea {
 }
 
 /* DESKTOP ONLY DIVIDERS (SOFTER) */
+@media (min-width: 1025px) {
+    .hero-img {
+        object-position: center 2%;
+    }
+}
+
 @media (min-width: 901px) {
     .trust-item:not(:last-child)::after {
         content: '';
@@ -674,6 +698,12 @@ textarea {
 }
 
 /* MOBILE */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero-img {
+        object-position: center 5%;
+    }
+}
+
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 36px;
