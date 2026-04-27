@@ -9,7 +9,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Dott.ssa Rando</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -27,13 +27,16 @@
         <p class="tagline">
           Uno spazio di ascolto, comprensione e supporto per il tuo benessere
         </p>
+        <p class="micro-trust">
+          Primo contatto senza impegno • Riservatezza garantita
+        </p>
 
         <div class="actions">
           <a href="https://wa.me/393713397393" class="btn primary">
             Scrivimi su WhatsApp
           </a>
           <a href="#contact" class="btn ghost">
-            Richiedi un primo contatto
+            Scrivimi senza impegno
           </a>
         </div>
       </div>
@@ -77,7 +80,7 @@
     </div>
 
     <div class="image-block">
-      <img src="../assets/images/doctor.jpg">
+      <img src="doctor.jpg">
     </div>
   </section>
 
@@ -91,6 +94,17 @@
       <div class="card">Relazioni</div>
       <div class="card">Momenti di cambiamento</div>
     </div>
+  </section>
+
+  <!-- TARGET AUDIENCE -->
+  <section class="who container narrow">
+
+    <h2>Potrebbe esserti utile se…</h2>
+
+    <p class="reveal">Ti senti spesso sopraffatto o in difficoltà</p>
+    <p class="reveal">Hai bisogno di maggiore chiarezza in un momento importante</p>
+    <p class="reveal">Vuoi semplicemente capire meglio te stesso</p>
+
   </section>
 
   <!-- PHILOSOPHY -->
@@ -155,6 +169,10 @@
     </div>
 
   </section>
+  <div class="mid-cta">
+    <p>Potresti iniziare da qui, con calma.</p>
+    <a href="#contact" class="btn primary">Scrivimi senza impegno</a>
+  </div>
 
   <!-- LOCATION -->
   <section class="location container split">
@@ -187,16 +205,17 @@
   <!-- CONTACT -->
   <section id="contact" class="contact section container">
     <h2>Contattami</h2>
-
+    <p class="contact-reassurance">
+      Ti risponderò personalmente entro 24 ore. Nessun impegno.
+    </p>
     <form id="contactForm">
       <input placeholder="Nome" name="name" required>
-      <input type="email" placeholder="mail@example.com" name="email" required>
       <input placeholder="Telefono" name="phone" required>
       <textarea placeholder="Messaggio" name="message"></textarea>
       <!--HONEY POT BOT-->
       <input type="text" name="company" class="honeypot">
 
-      <button class="submit-btn" type="submit">Richiedi un primo contatto</button>
+      <button class="submit-btn" type="submit">Scrivimi senza impegno</button>
     </form>
 
     <p id="status"></p>
@@ -287,7 +306,7 @@
     </div>
 
   </div>
-  <script src="/js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
