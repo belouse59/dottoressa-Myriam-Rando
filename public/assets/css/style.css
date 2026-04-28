@@ -216,15 +216,73 @@ section.visible {
 }
 
 .card {
-    padding: 30px;
-    background: white;
-    border-radius: 16px;
-    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-soft);
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.card:hover::after {
+  width: calc(100% - 60px);
+}
+
+.card-inner {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.card p {
+  margin-top: 10px;
+  color: #6B7280;
+  opacity: 0.7;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+/* 👇 HOVER EFFECT */
+.card:hover .card-inner {
+  transform: translateY(-5px);
+}
+
+.card:hover h3 {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.card:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-intro {
+  max-width: 600px;
+  margin: 10px 0 40px;
+  color: #6B7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.section-note {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #9CA3AF;
+  font-style: italic;
 }
 
 /* PHILOSOPHY */
