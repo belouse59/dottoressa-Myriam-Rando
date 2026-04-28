@@ -745,18 +745,34 @@ textarea {
 ============================================================ */
 
 .toast {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    border-radius: var(--radius-lg);
-    background: var(--bg-elevated);
-    font-size: 0.95rem;
-    max-width: 320px;
-    z-index: 2000;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 24px;
+  right: 24px;
+
+  padding: 14px 18px;
+  border-radius: var(--radius-xl);
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+
+  font-size: 0.95rem;
+  line-height: 1.4;
+
+  max-width: 340px;
+  z-index: 2000;
+
+  opacity: 0;
+  transform: translateY(-10px);
+
+  transition: 
+    opacity 0.35s ease,
+    transform 0.35s ease;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .toast.success {
@@ -826,5 +842,12 @@ textarea {
 
     .social-links {
         justify-content: center;
+    }
+    
+    .toast {
+        left: 16px;
+        right: 16px;
+        top: 16px;
+        max-width: none;
     }
 }
