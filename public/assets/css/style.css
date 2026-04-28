@@ -259,6 +259,7 @@ section.visible {
 /* 👇 HOVER EFFECT */
 .card:hover .card-inner {
   transform: translateY(-5px);
+  cursor: default;
 }
 
 .card:hover h3 {
