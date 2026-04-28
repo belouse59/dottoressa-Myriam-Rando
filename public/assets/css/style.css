@@ -492,6 +492,10 @@ textarea {
     border: none;
     cursor: pointer;
 }
+
+button.success {
+  opacity: 0.85;
+}
 .status.loading::after {
   content: '...';
   display: inline-block;
