@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
-
         // honeypot spam protection
         if (form.company.value) return;
 
@@ -38,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
             formType: "contact"
         };
 
-        status.innerText = "Invio in corso...";
+        status.innerText = "Invio in corso";
+        status.classList.add("loading");
 
         try {
             const res = await fetch("/api/form/submit", {
@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             });
+            status.classList.remove("loading");
 
             if (res.ok) {
                 status.innerText = "Messaggio inviato!";
