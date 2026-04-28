@@ -264,6 +264,7 @@ section.visible {
 .card:hover h3 {
   opacity: 0.85;
   transform: translateY(-2px);
+  color: var(--accent);  
 }
 
 .card:hover p {
