@@ -219,11 +219,12 @@ section.visible {
     padding: 30px;
     background: white;
     border-radius: 16px;
-    transition: 0.3s;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
 }
 
 /* PHILOSOPHY */
