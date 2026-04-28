@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             status.classList.remove("loading");
 
             if (res.ok) {
+                
                 status.innerText = "Messaggio inviato!";
                 submitBtn.innerText = "Inviato ✓";
                 submitBtn.classList.add("success");
@@ -69,6 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
             status.innerText = "Errore di rete";
             showToaster("Errore di rete", "error");
         }
+         setTimeout(() => {
+             status.innerText = "";
+             submitBtn.innerText ="Scrivimi senza impegno";
+             submitBtn.classList.remove("success");
+         }, 5000)
     });
 
 });
