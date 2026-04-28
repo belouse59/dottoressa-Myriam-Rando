@@ -738,6 +738,32 @@ textarea {
     cursor: pointer;
     flex-shrink: 0;
 }
+/* ============================================================
+   4p. TOAST
+============================================================ */
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+    font-size: 0.95rem;
+    max-width: 320px;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.toast.success { background: linear-gradient(135deg, #ff9900, #e65c00); }
+.toast.error   { background-color: #e74c3c; }
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* DESKTOP ONLY DIVIDERS (SOFTER) */
 @media (min-width: 1025px) {
