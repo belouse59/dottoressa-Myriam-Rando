@@ -17,6 +17,8 @@
     --soft: #E5E2DE;
     --text: #374151;
     --whatsapp: #25D366;
+    --toast-success: #2F6F6D;
+    --toast-error: #B4534A;
 
     /* SPACING */
     --spacing-sm: 12px;
@@ -757,8 +759,17 @@ textarea {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.toast.success { background: linear-gradient(135deg, #ff9900, #e65c00); }
-.toast.error   { background-color: #e74c3c; }
+.toast.success {
+  background: rgba(14, 165, 164, 0.08);
+  border-left: 3px solid var(--toast-success);
+  color: #0F172A;
+}
+
+.toast.error {
+  background: rgba(180, 83, 74, 0.08);
+  border-left: 3px solid var(--toast-error);
+  color: #0F172A;
+}
 
 .visible {
     opacity: 1;
