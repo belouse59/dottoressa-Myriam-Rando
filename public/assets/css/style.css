@@ -491,13 +491,11 @@ textarea {
     border-radius: 999px;
     border: none;
     cursor: pointer;
-    content: "Scrivimi senza impegno";
-    transition: 0.8s;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 button.success {
-    opacity: 0.85;
-    content: "Inviato ✓";
+  opacity: 0.85;
 }
 .status.loading::after {
   content: '...';
