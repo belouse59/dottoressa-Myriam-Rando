@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
          setTimeout(() => {
              status.innerText = "";
+             submitBtn.innerText ="Scrivimi senza impegno";
              submitBtn.classList.remove("success");
          }, 5000);
     });
@@ -228,4 +229,3 @@ const mapObserver = new IntersectionObserver((entries) => {
 });
 
 mapObserver.observe(mapSection);
-
