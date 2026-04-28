@@ -2,6 +2,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
 
+    /*TOASTER*/
+    function showToaster(message, type = "success") {
+        // create toast
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerHTML = message
+        document.body.appendChild(toast);
+
+        // force reflow to enable transition
+        setTimeout(() => {
+            toast.style.opacity = '1';
+        }, 100);
+
+        // hide and remove
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => {
+                toast.remove();
+            }, 500); // fade-out duration
+        }, 4000);
+    }
+
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -27,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (res.ok) {
                 status.innerText = "Messaggio inviato!";
+                showToaster("Messaggio inviato!");
                 form.reset();
 
                 // optional: redirect to WhatsApp
@@ -34,11 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } else {
                 status.innerText = "Errore invio";
+                showToaster("Errore invio", "error");
             }
 
         } catch (err) {
             console.error(err);
             status.innerText = "Errore di rete";
+            showToaster("Errore di rete", "error");
         }
     });
 
@@ -180,7 +205,7 @@ const trustObserver = new IntersectionObserver((entries) => {
 
 trustItems.forEach(item => trustObserver.observe(item));
 
-
+/*MAP OBSERVER ON MOBILE*/
 const mapSection =document.querySelector(".map iframe");
 const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 const mapObserver = new IntersectionObserver((entries) => {
@@ -194,3 +219,4 @@ const mapObserver = new IntersectionObserver((entries) => {
 });
 
 mapObserver.observe(mapSection);
+
