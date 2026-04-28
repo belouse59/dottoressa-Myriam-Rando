@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
+    const submitBtn = document.getElementbyId("submit-btn");
 
     /*TOASTER*/
     function showToaster(message, type = "success") {
@@ -50,6 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (res.ok) {
                 status.innerText = "Messaggio inviato!";
+                submitBtn.innerText = "Inviato ✓";
+                submitBtn.classList.add("success");
                 showToaster("Messaggio inviato!");
                 form.reset();
 
