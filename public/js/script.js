@@ -180,3 +180,18 @@ const trustObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 trustItems.forEach(item => trustObserver.observe(item));
+
+
+const mapSection =document.querySelector(".map iframe");
+
+const mapObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.4 // triggers when ~40% visible
+});
+
+mapObserver.observe(mapSection);
