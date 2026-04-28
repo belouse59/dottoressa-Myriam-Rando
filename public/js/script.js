@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
@@ -186,13 +187,12 @@ const mapSection =document.querySelector(".map iframe");
 
 const mapObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-      console.log("map is visible")
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting && isMobile) {
       entry.target.classList.add("visible");
     }
   });
 }, {
-  threshold: 0.4 // triggers when ~40% visible
+  threshold: 0.9 // triggers when ~40% visible
 });
 
 mapObserver.observe(mapSection);
