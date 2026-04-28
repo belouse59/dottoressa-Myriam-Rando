@@ -186,6 +186,7 @@ const mapSection =document.querySelector(".map iframe");
 
 const mapObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
+      console.log("map is visible")
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
     }
