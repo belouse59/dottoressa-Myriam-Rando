@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
 
@@ -184,7 +182,7 @@ trustItems.forEach(item => trustObserver.observe(item));
 
 
 const mapSection =document.querySelector(".map iframe");
-
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 const mapObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting && isMobile) {
