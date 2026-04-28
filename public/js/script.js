@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // force reflow to enable transition
         setTimeout(() => {
-            toast.style.opacity = '1';
+            toast.classList.add("visible");
         }, 100);
 
         // hide and remove
         setTimeout(() => {
-            toast.style.opacity = '0';
+            toast.classList.remove("visible");
             setTimeout(() => {
                 toast.remove();
             }, 500); // fade-out duration
