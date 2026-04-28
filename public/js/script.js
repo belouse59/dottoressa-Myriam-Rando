@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
-    const submitBtn = document.getElementbyId("submit-btn");
+    const submitBtn = document.getElementById("submit-btn");
 
     /*TOASTER*/
     function showToaster(message, type = "success") {
