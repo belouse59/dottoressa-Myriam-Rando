@@ -461,7 +461,7 @@ section.visible {
 }
 
 /* subtle hover (premium touch) */
-.map iframe:hover {
+.map iframe:hover, .map iframe.visible {
     filter: grayscale(0%);
 }
 
