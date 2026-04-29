@@ -2,6 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
     const status = document.getElementById("status");
     const submitBtn = document.getElementById("submit-btn");
+    const select = document.querySelector('select[name="requestType"]');
+    const textarea = document.querySelector('textarea[name="message"]');
+
+    select.addEventListener("change", () => {
+        const templates = {
+            "primo-colloquio": "Buongiorno, vorrei prenotare un primo colloquio.",
+            "informazioni": "Buongiorno, vorrei ricevere maggiori informazioni.",
+            "supporto": "Buongiorno, desidero ricevere supporto psicologico.",
+            "online": "Buongiorno, vorrei ricevere informazioni sui colloqui online."
+        };
+
+        textarea.value = templates[select.value] || "";
+    });
 
     /*TOASTER*/
     function showToaster(message, type = "success") {
@@ -35,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             email: form.email.value,
             phone: form.phone.value,
             message: form.message.value,
+            requestType: form.requestType.value,
             formType: "contact"
         };
 
@@ -50,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             status.classList.remove("loading");
 
             if (res.ok) {
-                
+
                 status.innerText = "Messaggio inviato!";
                 submitBtn.innerText = "Inviato ✓";
                 submitBtn.classList.add("success");
@@ -58,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 form.reset();
 
                 // optional: redirect to WhatsApp
-               // window.open("https://wa.me/393713397393", "_blank");
+                // window.open("https://wa.me/393713397393", "_blank");
 
             } else {
                 status.innerText = "Errore invio";
@@ -70,11 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
             status.innerText = "Errore di rete";
             showToaster("Errore di rete", "error");
         }
-         setTimeout(() => {
-             status.innerText = "";
-             submitBtn.innerText ="Scrivimi senza impegno";
-             submitBtn.classList.remove("success");
-         }, 5000);
+        setTimeout(() => {
+            status.innerText = "";
+            submitBtn.innerText = "Scrivimi senza impegno";
+            submitBtn.classList.remove("success");
+        }, 5000);
     });
 
 });
@@ -115,7 +129,7 @@ submitChatBtn.addEventListener("click", sendToWhatsApp);
 whatsappFloat.addEventListener("click", toggleChat);
 whatsappCloseBtn.addEventListener("click", toggleChat);
 quickactionsBtn.forEach(button => {
-  button.addEventListener("click", selectPrompt);
+    button.addEventListener("click", selectPrompt);
 });
 
 function toggleChat() {
@@ -132,7 +146,7 @@ function openChat() {
 
 let selectedMessage = "";
 function selectPrompt(e) {
-     const origin = e.srcElement.id.split("|")[1];
+    const origin = e.srcElement.id.split("|")[1];
     switch (origin) {
         case "PrimoColloquio":
             selectedMessage = 'Vorrei prenotare un primo colloquio';
@@ -154,10 +168,10 @@ function sendToWhatsApp() {
 
     const phoneNumber = "+34667218526"; // replace with your number
     const defaultMessage = "Ciao, vorrei avere alcune informazioni.";
-    
+
     const finalMessage =
         input.value.trim() || selectedMessage || "Buongiorno, vorrei informazioni.";
-    
+
     const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(finalMessage);
 
     window.open(url, "_blank");
@@ -228,28 +242,28 @@ elements.forEach(el => observerReveal.observe(el));
 const trustItems = document.querySelectorAll(".trust-item");
 
 const trustObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add("visible");
-      }, i * 100);
-    }
-  });
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add("visible");
+            }, i * 100);
+        }
+    });
 }, { threshold: 0.4 });
 
 trustItems.forEach(item => trustObserver.observe(item));
 
 /*MAP OBSERVER ON MOBILE*/
-const mapSection =document.querySelector(".map iframe");
+const mapSection = document.querySelector(".map iframe");
 const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 const mapObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && isMobile) {
-      entry.target.classList.add("visible");
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting && isMobile) {
+            entry.target.classList.add("visible");
+        }
+    });
 }, {
-  threshold: 0.9 // triggers when ~40% visible
+    threshold: 0.9 // triggers when ~40% visible
 });
 
 mapObserver.observe(mapSection);
