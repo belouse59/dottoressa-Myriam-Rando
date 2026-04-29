@@ -94,10 +94,10 @@
 
     <div class="cards">
       <div class="card">
-         <div class="card-inner">
-           <h3>Ansia e stress</h3>
-           <p>Quando la mente è sempre in movimento e diventa difficile fermarsi.</p>
-         </div>
+        <div class="card-inner">
+          <h3>Ansia e stress</h3>
+          <p>Quando la mente è sempre in movimento e diventa difficile fermarsi.</p>
+        </div>
       </div>
       <div class="card">
         <div class="card-inner">
@@ -106,16 +106,16 @@
         </div>
       </div>
       <div class="card">
-         <div class="card-inner">
-           <h3>Relazioni</h3>
-           <p>Difficoltà nel comunicare, comprendere l’altro o trovare equilibrio nei rapporti.</p>
-         </div>
+        <div class="card-inner">
+          <h3>Relazioni</h3>
+          <p>Difficoltà nel comunicare, comprendere l’altro o trovare equilibrio nei rapporti.</p>
+        </div>
       </div>
       <div class="card">
-         <div class="card-inner">
-           <h3>Momenti di cambiamento</h3>
-           <p>Fasi della vita in cui tutto si trasforma e può essere utile ritrovare direzione e stabilità.</p>
-         </div>
+        <div class="card-inner">
+          <h3>Momenti di cambiamento</h3>
+          <p>Fasi della vita in cui tutto si trasforma e può essere utile ritrovare direzione e stabilità.</p>
+        </div>
       </div>
     </div>
     <p class="section-note">
@@ -237,8 +237,16 @@
     </p>
     <form id="contactForm">
       <input placeholder="Nome" name="name" required>
-       <input type="email" placeholder="mail@example.com" name="email" required>
-      <input placeholder="Telefono" name="phone" required>
+      <input type="email" placeholder="mail@example.com" name="email" required>
+      <input type="tel" placeholder="Telefono (opzionale)" name="phone">
+      <select name="requestType" required>
+        <option value="" disabled selected>Seleziona il motivo del contatto</option>
+        <option value="primo-colloquio">Prenotare un primo colloquio</option>
+        <option value="informazioni">Richiedere informazioni</option>
+        <option value="supporto">Richiedere supporto psicologico</option>
+        <option value="online">Informazioni su colloqui online</option>
+        <option value="altro">Altro</option>
+      </select>
       <textarea placeholder="Messaggio" name="message"></textarea>
       <!--HONEY POT BOT-->
       <input type="text" name="company" class="honeypot">
@@ -246,7 +254,7 @@
       <button id="submit-btn" class="submit-btn" type="submit">Scrivimi senza impegno</button>
     </form>
 
-   <p id="status" class="status"></p>
+    <p id="status" class="status"></p>
   </section>
 
   <footer class="footer">
@@ -325,25 +333,25 @@
     </div>
 
     <div class="chat-body" id="chatBody">
-    <div class="message bot">
-      Benvenuto/a 🌿<br>
-      Come posso aiutarti?
+      <div class="message bot">
+        Benvenuto/a 🌿<br>
+        Come posso aiutarti?
+      </div>
+
+      <div class="quick-actions">
+        <button id="quickActions|PrimoColloquio">
+          Primo colloquio
+        </button>
+
+        <button id="quickActions|RichiedereInformazioni">
+          Richiedere informazioni
+        </button>
+
+        <button id="quickActions|bisognoDiSupporto">
+          Ho bisogno di supporto
+        </button>
+      </div>
     </div>
-
-    <div class="quick-actions">
-      <button id="quickActions|PrimoColloquio">
-        Primo colloquio
-      </button>
-
-      <button id="quickActions|RichiedereInformazioni">
-        Richiedere informazioni
-      </button>
-
-      <button  id="quickActions|bisognoDiSupporto">
-        Ho bisogno di supporto
-      </button>
-    </div>
-  </div>
 
     <div class="chat-input">
       <textarea id="userMessage" placeholder="Scrivimi liberamente, anche solo per un primo contatto..."></textarea>
