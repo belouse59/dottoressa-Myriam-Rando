@@ -123,17 +123,25 @@ function toggleChat() {
 function openChat() {
     const chat = document.getElementById("whatsappChat");
     chat.classList.add("active");
-}
+};
+
+let selectedMessage = "";
+function selectPrompt(message) {
+    selectedMessage = message;
+    input.value = message;
+    input.focus();
+    document.querySelector(".quick-actions").style.display = "none";
+};
+
 function sendToWhatsApp() {
-    const input = document.getElementById("userMessage");
     const message = input.value;
 
     const phoneNumber = "+34667218526"; // replace with your number
     const defaultMessage = "Ciao, vorrei avere alcune informazioni.";
     
-    const finalMessage = message && message.trim() !== ""
-        ? message
-        : defaultMessage;
+    const finalMessage =
+        input.value.trim() || selectedMessage || "Buongiorno, vorrei informazioni.";
+    
     const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(finalMessage);
 
     window.open(url, "_blank");
