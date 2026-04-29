@@ -143,8 +143,7 @@ function selectPrompt(e) {
             selectedMessage = 'Sto attraversando un momento difficile e vorrei parlarne';
             break;
     }
-    selectedMessage = message;
-    input.value = message;
+    input.value = selectedMessage;
     input.focus();
     document.querySelector(".quick-actions").style.display = "none";
 };
