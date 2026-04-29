@@ -132,7 +132,7 @@ function openChat() {
 let selectedMessage = "";
 function selectPrompt(e) {
     console.log(e);
-     const origin = e.srcElement.split("|")[1];
+     const origin = e.srcElement.id.split("|")[1];
     switch (origin) {
         case "PrimoColloquio":
             selectedMessage = 'Vorrei prenotare un primo colloquio';
