@@ -725,6 +725,29 @@ button.success {
     font-size: 14px;
 }
 
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.quick-actions button {
+  border: 1px solid #E5E2DE;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.quick-actions button:hover {
+  background: #F8FAFC;
+  transform: translateX(3px);
+}
+
 .chat-input {
     display: flex;
     align-items: flex-end;
