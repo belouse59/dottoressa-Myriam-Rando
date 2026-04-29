@@ -36,12 +36,13 @@ async function handleContact(data) {
   }
 
   await appendRow("ContactUsForm", [
-    new Date(),
+    new Date().toISOString().split(".")[0].replace('T',' '),
     //clean(data.firstname),
     //clean(data.lastname),
     clean(data.name),
     clean(data.email),
     clean(data.phone),
+    clean(data.requestType),
     //clean(data.contactTime),
     clean(data.message),
     "contact",
