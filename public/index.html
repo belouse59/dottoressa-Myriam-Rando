@@ -324,9 +324,26 @@
       </button>
     </div>
 
-    <div class="chat-body">
-      <p>Ciao 👋 sono qui per ascoltarti, con calma.</p>
+    <div class="chat-body" id="chatBody">
+    <div class="message bot">
+      Benvenuta 🌿<br>
+      Come posso aiutarti?
     </div>
+
+    <div class="quick-actions">
+      <button onclick="selectPrompt('Vorrei prenotare un primo colloquio')">
+        Primo colloquio
+      </button>
+
+      <button onclick="selectPrompt('Vorrei ricevere maggiori informazioni sul percorso')">
+        Richiedere informazioni
+      </button>
+
+      <button onclick="selectPrompt('Sto attraversando un momento difficile e vorrei parlarne')">
+        Ho bisogno di supporto
+      </button>
+    </div>
+  </div>
 
     <div class="chat-input">
       <textarea id="userMessage" placeholder="Scrivimi liberamente, anche solo per un primo contatto..."></textarea>
