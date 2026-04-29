@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const input = document.getElementById("userMessage");
 const whatsappFloat = document.querySelector(".whatsapp-float");
 const whatsappCloseBtn = document.querySelector(".chat-close-btn");
+const quickactionsBtn = document.querySelectorAll(".quick-actions button");
 input.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         if (event.shiftKey) {
@@ -112,6 +113,9 @@ setTimeout(() => {
 
 whatsappFloat.addEventListener("click", toggleChat);
 whatsappCloseBtn.addEventListener("click", toggleChat);
+quickactionsBtn.forEach(button => {
+  button.addEventListener("click", selectPrompt);
+});
 
 function toggleChat() {
     console.log("Hey Whatsapp")
@@ -126,7 +130,19 @@ function openChat() {
 };
 
 let selectedMessage = "";
-function selectPrompt(message) {
+function selectPrompt(e) {
+     const origin = e.srcElement.split("|")[1];
+    switch (origin) {
+        case "PrimoColloquio":
+            selectedMessage = 'Vorrei prenotare un primo colloquio';
+            break;
+        case "RichiedereInformazioni":
+            selectedMessage = 'Vorrei ricevere maggiori informazioni sul percorso';
+            break;
+        case "bisognoDiSupporto":
+            selectedMessage = 'Sto attraversando un momento difficile e vorrei parlarne';
+            break;
+    }
     selectedMessage = message;
     input.value = message;
     input.focus();
