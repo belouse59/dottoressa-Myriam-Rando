@@ -85,6 +85,7 @@ const input = document.getElementById("userMessage");
 const whatsappFloat = document.querySelector(".whatsapp-float");
 const whatsappCloseBtn = document.querySelector(".chat-close-btn");
 const quickactionsBtn = document.querySelectorAll(".quick-actions button");
+const submitChatBtn = document.getElementById("chat-submit-btn");
 input.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         if (event.shiftKey) {
@@ -110,7 +111,7 @@ setTimeout(() => {
         openChat(); // ✅ always opens (never toggles)
     }
 }, 5000);
-
+submitChatBtn.addEventListner("click", sendToWhatsApp);
 whatsappFloat.addEventListener("click", toggleChat);
 whatsappCloseBtn.addEventListener("click", toggleChat);
 quickactionsBtn.forEach(button => {
