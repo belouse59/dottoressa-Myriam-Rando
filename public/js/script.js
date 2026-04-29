@@ -111,7 +111,7 @@ setTimeout(() => {
         openChat(); // ✅ always opens (never toggles)
     }
 }, 5000);
-submitChatBtn.addEventListner("click", sendToWhatsApp);
+submitChatBtn.addEventListener("click", sendToWhatsApp);
 whatsappFloat.addEventListener("click", toggleChat);
 whatsappCloseBtn.addEventListener("click", toggleChat);
 quickactionsBtn.forEach(button => {
