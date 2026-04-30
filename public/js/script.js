@@ -98,8 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
 const input = document.getElementById("userMessage");
 const whatsappFloat = document.querySelector(".whatsapp-float");
 const whatsappCloseBtn = document.querySelector(".chat-close-btn");
+const quickActions = document.querySelector(".quick-actions").style.display = "none";
 const quickactionsBtn = document.querySelectorAll(".quick-actions button");
 const submitChatBtn = document.getElementById("chat-submit-btn");
+
 input.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         if (event.shiftKey) {
@@ -112,6 +114,7 @@ input.addEventListener("keydown", function (event) {
             if (message !== "") {
                 sendToWhatsApp();
             }
+            quickActions.style.display = "block";
         }
     }
 });
@@ -160,6 +163,7 @@ function selectPrompt(e) {
     }
     input.value = selectedMessage;
     input.focus();
+    quickActions.style.display = "none";
     document.querySelector(".quick-actions").style.display = "none";
 };
 
