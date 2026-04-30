@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const input = document.getElementById("userMessage");
 const whatsappFloat = document.querySelector(".whatsapp-float");
 const whatsappCloseBtn = document.querySelector(".chat-close-btn");
-const quickActions = document.querySelector(".quick-actions").style.display = "none";
+const quickActions = document.querySelector(".quick-actions");
 const quickactionsBtn = document.querySelectorAll(".quick-actions button");
 const submitChatBtn = document.getElementById("chat-submit-btn");
 
