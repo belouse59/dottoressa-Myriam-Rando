@@ -112,10 +112,11 @@ input.addEventListener("keydown", function (event) {
             event.preventDefault(); // prevent adding newline
             const message = input.value.trim();
             if (message !== "") {
+                console.log("sending to whatspapp")
                 sendToWhatsApp();
             }
-            console.log("setting to block");
-            quickActions.style.display = "block";
+            
+            quickActions.style.display = "flex";
         }
     }
 });
@@ -165,7 +166,6 @@ function selectPrompt(e) {
     input.value = selectedMessage;
     input.focus();
     quickActions.style.display = "none";
-    document.querySelector(".quick-actions").style.display = "none";
 };
 
 function sendToWhatsApp() {
