@@ -114,6 +114,7 @@ input.addEventListener("keydown", function (event) {
             if (message !== "") {
                 sendToWhatsApp();
             }
+            console.log("setting to block");
             quickActions.style.display = "block";
         }
     }
