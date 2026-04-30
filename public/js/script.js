@@ -112,17 +112,18 @@ input.addEventListener("keydown", function (event) {
             event.preventDefault(); // prevent adding newline
             const message = input.value.trim();
             if (message !== "") {
-                console.log("sending to whatspapp")
                 sendToWhatsApp();
             }
             
-            quickActions.style.display = "flex";
+            
         }
     }
 });
 input.addEventListener("input", function () {
     this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
+    if (input.value.trim() === "") quickActions.style.display = "flex"; 
+    
 });
 let userInteracted = false;
 setTimeout(() => {
