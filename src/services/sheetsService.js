@@ -31,7 +31,7 @@ async function markEmailVerified(sheetName, email) {
   );
 
   if (rowIndex === -1) {
-    throw new Error("Email not found");
+    return false;
   }
 
   const actualRow = rowIndex + 1;
@@ -47,6 +47,7 @@ async function markEmailVerified(sheetName, email) {
       ]]
     }
   });
+  return true;
   
 }
 

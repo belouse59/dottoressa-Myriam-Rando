@@ -56,7 +56,7 @@ async function handleContact(data) {
     email exists but NOT verified
     -> resend verification
   */
- let mailSent;
+  let mailSent;
   if (emailStatus.exists && !emailStatus.verified) {
     const token = generateToken(data.email);
 
@@ -221,9 +221,9 @@ async function verifyEmail(req, res) {
 
     return res.status(400).send(html);
   }
-
+  let updated = false;
   try {
-    await markEmailVerified(
+    updated = await markEmailVerified(
       process.env.SHEET_NAME_CONTACT,
       result.email
     );
@@ -231,14 +231,19 @@ async function verifyEmail(req, res) {
     console.error(err);
   }
 
-  const html = loadTemplate(
-    "verify-success.html",
-    {
-      APP_URL: process.env.APP_URL
-    }
-  );
+  if (!updated) {
+    return res.status(404).send(
+      loadTemplate("verify-missing.html", {
+        APP_URL: process.env.APP_URL
+      })
+    );
+  }
 
-  return res.send(html);
+  return res.send(
+    loadTemplate("verify-success.html", {
+      APP_URL: process.env.APP_URL
+    })
+  );
 }
 
 module.exports = { submitForm, verifyEmail };
