@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 toast.remove();
             }, 500); // fade-out duration
-        }, 4000);
+        }, 5000);
     }
 
     form.addEventListener("submit", async (e) => {
@@ -68,7 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 status.innerText = "Messaggio inviato!";
                 submitBtn.innerText = "Inviato ✓";
                 submitBtn.classList.add("success");
-                showToaster("Messaggio inviato!");
+                showToaster(`Grazie per avermi contattata.
+
+Ti invito a controllare la tua email (anche spam o promozioni) per confermare la richiesta e ricevere aggiornamenti.`);
                 form.reset();
 
                 // optional: redirect to WhatsApp
