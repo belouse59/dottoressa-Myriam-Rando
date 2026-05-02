@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #F7F6F4;
+    font-family: Arial, sans-serif;
+    color: #374151;
+  }
+
+  .wrapper {
+    max-width: 620px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 18px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  }
+
+  h1 {
+    font-size: 28px;
+    color: #1F2937;
+    margin-bottom: 20px;
+  }
+
+  p {
+    line-height: 1.7;
+    color: #6B7280;
+    font-size: 16px;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 28px;
+    background: #8B7E74;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .footer {
+    margin-top: 40px;
+    font-size: 13px;
+    color: #9CA3AF;
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1>Conferma la tua richiesta</h1>
+
+    <p>
+      Grazie per avermi contattata.
+    </p>
+
+    <p>
+      Per confermare il tuo indirizzo email e completare la richiesta,
+      clicca sul pulsante qui sotto.
+    </p>
+
+    <a href="{{VERIFY_URL}}" class="button">
+      Conferma email
+    </a>
+
+    <div class="footer">
+      Questo link sarà valido per 24 ore.
+    </div>
+  </div>
+
+</body>
+</html>

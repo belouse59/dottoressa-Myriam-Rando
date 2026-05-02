@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         status.classList.add("loading");
 
         try {
-            const res = await fetch("/api/form/submit", {
+            const res = await fetch("/api/contact/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
@@ -98,10 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const input = document.getElementById("userMessage");
 const whatsappFloat = document.querySelector(".whatsapp-float");
 const whatsappCloseBtn = document.querySelector(".chat-close-btn");
-const quickActions = document.querySelector(".quick-actions");
 const quickactionsBtn = document.querySelectorAll(".quick-actions button");
 const submitChatBtn = document.getElementById("chat-submit-btn");
-
 input.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         if (event.shiftKey) {
@@ -114,16 +112,12 @@ input.addEventListener("keydown", function (event) {
             if (message !== "") {
                 sendToWhatsApp();
             }
-            
-            
         }
     }
 });
 input.addEventListener("input", function () {
     this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
-    if (input.value.trim() === "") quickActions.style.display = "flex"; 
-    
 });
 let userInteracted = false;
 setTimeout(() => {
@@ -166,7 +160,7 @@ function selectPrompt(e) {
     }
     input.value = selectedMessage;
     input.focus();
-    quickActions.style.display = "none";
+    document.querySelector(".quick-actions").style.display = "none";
 };
 
 function sendToWhatsApp() {

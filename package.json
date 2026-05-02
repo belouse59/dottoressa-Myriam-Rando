@@ -1,7 +1,7 @@
 {
   "name": "psychologist-website",
   "version": "1.0.0",
-   "main": "index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
@@ -16,10 +16,10 @@
     "express": "^5.2.1",
     "googleapis": "^171.4.0",
     "helmet": "^8.1.0",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "resend": "^6.12.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
   }
 }
-

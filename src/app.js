@@ -4,7 +4,7 @@ const path = require("path");
 const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
-const formRoutes = require("./routes/formRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 const app = express();
 const CSP_CONFIG = require("./config/csp");
 
@@ -19,7 +19,7 @@ app.use(cors({
 app.use(express.json());
 app.use(morgan("dev"));
 // any routes inside the corresponding routes will be prefixed with "/api/*"
-app.use("/api/form", formRoutes);
+app.use("/api/contact", contactRoutes);
 
 // serve frontend (your old Google HTML will go here later)
 app.use(express.static(path.join(__dirname, "../public")));
