@@ -56,11 +56,12 @@ async function handleContact(data) {
     email exists but NOT verified
     -> resend verification
   */
+ let mailSent;
   if (emailStatus.exists && !emailStatus.verified) {
     const token = generateToken(data.email);
 
     try {
-      await sendVerificationEmail(
+      mailSent = await sendVerificationEmail(
         data.email,
         token
       );
@@ -118,10 +119,11 @@ async function handleContact(data) {
   const token = generateToken(data.email);
 
   try {
-    await sendVerificationEmail(
+    mailSent = await sendVerificationEmail(
       data.email,
       token
     );
+    console.log(mailSent);
   } catch (err) {
     console.error(err);
   }
