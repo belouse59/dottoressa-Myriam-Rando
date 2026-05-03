@@ -14,7 +14,7 @@
 
 <body>
 
-  <section class="hero-wrapper">
+  <div class="hero-wrapper">
 
     <!-- HERO -->
     <section class="hero">
@@ -68,7 +68,7 @@
 
     </div>
 
-  </section>
+  </div>
 
   <!-- ABOUT -->
   <section class="about section container split">
@@ -201,6 +201,50 @@
     <a href="#contact" class="btn primary">Scrivimi senza impegno</a>
   </div>
 
+  <!-- PRICING PLAN -->
+  <section class="pricing section">
+
+    <div class="container narrow intro-block">
+      <p class="kicker">Informazioni pratiche</p>
+      <h2>Tariffe e modalità</h2>
+      <p class="intro">
+        Un percorso costruito con trasparenza, flessibilità e attenzione ai tuoi bisogni.
+      </p>
+    </div>
+
+    <div class="pricing-card">
+
+      <div class="pricing-row">
+        <span>Primo colloquio</span>
+        <strong>€60</strong>
+      </div>
+
+      <div class="pricing-row">
+        <span>Colloquio individuale</span>
+        <strong>€50</strong>
+      </div>
+
+      <div class="pricing-row">
+        <span>Consulenza online</span>
+        <strong>Disponibile</strong>
+      </div>
+
+      <div class="pricing-row">
+        <span>Durata seduta</span>
+        <strong>50 min</strong>
+      </div>
+
+    </div>
+
+    <p class="pricing-note">
+      Per esigenze specifiche o percorsi personalizzati, è possibile valutare insieme la modalità più adatta.
+    </p>
+
+  </section>
+
+
+
+
   <!-- LOCATION -->
   <section class="location container split">
 
@@ -248,24 +292,6 @@
         <option value="altro">Altro</option>
       </select>
       <textarea placeholder="Messaggio" name="message"></textarea>
-            <!-- GDPR BLOCK HERE 👇 -->
-            <div class="consent-block">
-                <label class="consent-item">
-                    <input id="consent-checkbox" type="checkbox">
-                    <span class="checkmark"></span>
-                    <span class="consent-text">
-                      Acconsento al trattamento dei miei dati personali secondo la
-                      <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
-                    </span>
-                </label>
-                <p class="consent-error" id="consentError">
-                    È necessario accettare prima di continuare.
-                </p>
-
-                <p class="consent-note">
-                    Le informazioni fornite saranno trattate con la massima discrezione e utilizzate unicamente per finalità di contatto.
-                </p>
-            </div>
       <!--HONEY POT BOT-->
       <input type="text" name="company" class="honeypot">
 
@@ -275,7 +301,7 @@
     <p id="status" class="status"></p>
   </section>
 
-  <footer class="footer">
+  <footer id="footer" class="footer">
 
     <div class="container footer-grid">
 
@@ -298,8 +324,9 @@
       <!-- INFO -->
       <div class="footer-col">
         <h4>Informazioni</h4>
-        <p><a href="#">Privacy Policy</a></p>
-        <p><a href="#">Note legali</a></p>
+        <p><a href="/privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="/cookie-policy.html">Cookie Policy</a></p>
+        <p><a href="/note-legali.html">Note legali</a></p>
       </div>
 
       <!-- SOCIAL -->
@@ -378,7 +405,10 @@
     </div>
 
   </div>
-  <script src="/js/script.js"></script>
+  <script src="/js/animation.js"></script>
+  <script src="/js/contact.js"></script>
+  <script src="/js/maps.js"></script>
+  <script src="/js/whatsapp.js"></script>
 </body>
 
 </html>
