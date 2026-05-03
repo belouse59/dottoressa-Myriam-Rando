@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitBtn.classList.add("success");
                 showToaster(`Grazie per avermi contattata.
 
-Ti invito a controllare la tua email (anche spam o promozioni) per confermare la richiesta e ricevere aggiornamenti.`);
+Ti invito a controllare la tua email (spam o promozioni) per confermare la richiesta e ricevere aggiornamenti.`);
                 form.reset();
 
                 // optional: redirect to WhatsApp
