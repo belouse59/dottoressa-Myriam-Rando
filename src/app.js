@@ -35,8 +35,7 @@ app.use((err, req, res, next) => {
 // health check
 app.get("/health", (req, res) => {
     res.json({
-        status: "ok",
-        project: "mmconsultingagency 🚀"
+        status: "ok"
     });
 });
 
