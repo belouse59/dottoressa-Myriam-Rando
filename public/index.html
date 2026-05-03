@@ -248,6 +248,24 @@
         <option value="altro">Altro</option>
       </select>
       <textarea placeholder="Messaggio" name="message"></textarea>
+            <!-- GDPR BLOCK HERE 👇 -->
+            <div class="consent-block">
+                <label class="consent-item">
+                    <input id="consent-checkbox" type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="consent-text">
+                        Accetto di essere contattato/a in merito alla mia richiesta e accetto l’
+                        <a href="#" id="privacyLink">informativa sulla privacy</a>.
+                    </span>
+                </label>
+                <p class="consent-error" id="consentError">
+                    Devi accettare l’informativa sulla privacy per continuare.
+                </p>
+
+                <p class="consent-note">
+                    Utilizziamo i tuoi dati solo per rispondere alla tua richiesta. Non li vendiamo mai.
+                </p>
+            </div>
       <!--HONEY POT BOT-->
       <input type="text" name="company" class="honeypot">
 
