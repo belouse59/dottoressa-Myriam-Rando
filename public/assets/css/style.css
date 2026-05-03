@@ -675,8 +675,14 @@ button.success {
     transform: translateY(0);
 }
 
-.consent-error::before {
-    content: "⚠ ";
+.consent-block.error {
+    animation: consentShake 0.35s ease;
+}
+
+@keyframes consentShake {
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-2px); }
 }
 
 /* legal note */
