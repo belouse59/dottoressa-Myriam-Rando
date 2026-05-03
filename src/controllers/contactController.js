@@ -17,14 +17,15 @@ const { getLocalTimestamp } = require("../utils/dateFormat");
 const rateMap = new Map();
 
 function isRateLimited(email) {
+  // Guard: must be a plain string
+  if (typeof email !== "string") return true;
   const key = email.replace(/[^a-zA-Z0-9]/g, "_");
+
   const count = rateMap.get(key) || 0;
 
   if (count >= 5) return true;
-
   rateMap.set(key, count + 1);
   setTimeout(() => rateMap.delete(key), 3600 * 1000);
-
   return false;
 }
 
@@ -34,6 +35,9 @@ function respond(status, message) {
 
 /* ---------------- CONTACT ---------------- */
 async function handleContact(data) {
+  if (data.name?.length > 200 || data.message?.length > 2000) {
+    return respond("error", "Input too long");
+  }
   if (!data.email || !isValidEmail(data.email)) {
     return respond("error", "Invalid email");
   }
@@ -179,28 +183,38 @@ async function handleSimulator(data) {
 /* ---------------- MAIN ROUTER ---------------- */
 async function submitForm(req, res) {
   const data = req.body;
+  if (data.company) {
+  // Silent discard — don't tell bots they were detected
+  return res.status(200).json(respond("success", "Request processed"));
+}
+  // Reject if any field is not a primitive
+  const fields = ["email", "name", "phone", "message", "requestType", "formType"];
+  for (const field of fields) {
+    if (data[field] !== undefined && typeof data[field] !== "string") {
+      return res.status(400).json(respond("error", "Invalid input"));
+    }
+  }
 
   if (!data || !data.formType) {
-    return res.json(respond("error", "Invalid data"));
+    return res.status(400).json(respond("error", "Invalid data"));
   }
 
   if (data.email && isRateLimited(data.email)) {
-    return res.json(respond("error", "Too many requests"));
+    return res.status(429).json(respond("error", "Too many requests"));
   }
 
+  // For errors inside handlers, you can either throw or return a flag
+  // Simplest fix: check the returned status
+  let result;
   switch (data.formType) {
-    case "contact":
-      return res.json(await handleContact(data));
-
-    case "newsletter":
-      return res.json(await handleNewsletter(data));
-
-    case "simulator":
-      return res.json(await handleSimulator(data));
-
-    default:
-      return res.json(respond("error", "Invalid form type"));
+    case "contact": result = await handleContact(data); break;
+    case "newsletter": result = await handleNewsletter(data); break;
+    case "simulator": result = await handleSimulator(data); break;
+    default: return res.status(400).json(respond("error", "Invalid form type"));
   }
+
+  const httpStatus = result.status === "error" ? 400 : 200;
+  return res.status(httpStatus).json(result);
 }
 
 /* ---------------- VERIFY EMAIL ROUTER ---------------- */

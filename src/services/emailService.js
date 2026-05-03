@@ -15,7 +15,7 @@ async function sendVerificationEmail(email, token) {
 );
 
   return resend.emails.send({
-    from: `${process.env.BRAND_NAME} <onboarding@resend.dev>`,
+    from: `${process.env.BRAND_NAME} <${process.env.RESEND_FROM_EMAIL}>`,
     to: email,
     subject: "Conferma la tua richiesta",
     html 

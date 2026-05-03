@@ -27,11 +27,13 @@ const CSP_CONFIG = {
       imgSrc: [
         "'self'",
         "data:",
-        "https://cdn-icons-png.flaticon.com"
+        "https://maps.gstatic.com",
+        "https://maps.googleapis.com",
       ],
 
       connectSrc: [
-        "'self'"
+        "'self'",
+        "https://maps.googleapis.com",
       ],
 
       frameSrc: [

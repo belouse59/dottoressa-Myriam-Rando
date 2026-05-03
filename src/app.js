@@ -12,9 +12,12 @@ const CSP_CONFIG = require("./config/csp");
 app.use(helmet(CSP_CONFIG));
 
 //Lock down CORS to only accept GET/POST between the domain
-app.use(cors({ 
-    origin: process.env.ALLOWED_ORIGIN, 
-    methods: ["GET", "POST"] 
+const allowedOrigin = process.env.ALLOWED_ORIGIN;
+if (!allowedOrigin) throw new Error("ALLOWED_ORIGIN env variable is not set");
+
+app.use(cors({
+  origin: allowedOrigin,
+  methods: ["GET", "POST"]
 }));
 app.use(express.json());
 app.use(morgan("dev"));
@@ -24,6 +27,11 @@ app.use("/api/contact", contactRoutes);
 // serve frontend (your old Google HTML will go here later)
 app.use(express.static(path.join(__dirname, "../public")));
 
+// Catch unhandled errors — never expose internals
+app.use((err, req, res, next) => {
+  console.error(err); // log internally only
+  res.status(500).json({ status: "error", message: "Internal server error" });
+});
 // health check
 app.get("/health", (req, res) => {
     res.json({
