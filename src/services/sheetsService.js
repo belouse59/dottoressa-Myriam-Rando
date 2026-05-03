@@ -1,5 +1,5 @@
 const sheets = require("../config/google");
-
+const { getLocalTimestamp } = require("../utils/dateFormat");
 const SPREADSHEET_ID = process.env.SHEET_ID;
 
 async function appendRow(sheetName, values) {
@@ -43,7 +43,7 @@ async function markEmailVerified(sheetName, email) {
     requestBody: {
       values: [[
         "true",
-        new Date().toISOString().split(".")[0].replace("T", " ")
+        getLocalTimestamp()
       ]]
     }
   });
