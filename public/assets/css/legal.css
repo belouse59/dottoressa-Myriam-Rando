@@ -63,7 +63,8 @@ h2 {
     margin-bottom: 12px;
 }
 
-p, li {
+p,
+li {
     color: var(--text);
     font-size: 0.97rem;
 }

@@ -70,7 +70,7 @@ function selectPrompt(e) {
 function sendToWhatsApp() {
     const message = input.value;
 
-    const phoneNumber = "+34667218526"; // replace with your number
+    const phoneNumber = "+393713397393"; // replace with your number
     const defaultMessage = "Ciao, vorrei avere alcune informazioni.";
 
     const finalMessage =

@@ -2,14 +2,66 @@
 <html lang="it">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Dott.ssa Myriam Rando – Psicologa a Messina | Colloqui individuali e online</title>
   <meta charset="UTF-8">
+  <meta name="author" content="Dott.ssa Myriam Rando">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="geo.region" content="IT-ME">
+  <meta name="geo.placename" content="Messina">
+  <meta name="geo.position" content="38.1938;15.5540">
+  <meta name="ICBM" content="38.1938, 15.5540">
+  <meta name="description"
+    content="Psicologa a Messina. Supporto per ansia, stress, autostima e relazioni. Primo colloquio €60. Colloqui in studio e online. Prenota senza impegno.">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Dott.ssa Rando</title>
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Person", "LocalBusiness"],
+  "name": "Dott.ssa Myriam Rando",
+  "jobTitle": "Psicologa",
+  "description": "Psicologa a Messina specializzata in ansia, stress, autostima e supporto relazionale. Colloqui individuali e online.",
+  "url": "https://dottoressa-myriam-rando.vercel.app/",
+  "telephone": "+393713397393",
+  "email": "myriamrando@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Roma 123",
+    "addressLocality": "Messina",
+    "addressRegion": "Sicilia",
+    "postalCode": "98100",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.1938,
+    "longitude": 15.5540
+  },
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "priceRange": "€50–€60",
+  "sameAs": [
+    "https://www.instagram.com/mente.sintetica/",
+    "https://it.linkedin.com/in/myriam-rando-752a90383",
+    "https://www.facebook.com/people/SinteticaMente/61578441935099/"
+  ]
+}
+</script>
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dottoressa-myriam-rando.vercel.app/">
+
+  <!-- Open Graph (for sharing on WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:title" content="Dott.ssa Myriam Rando – Psicologa a Messina">
+  <meta property="og:description"
+    content="Supporto psicologico per ansia, stress, autostima e relazioni. Primo colloquio €60. Prenota senza impegno.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dottoressa-myriam-rando.vercel.app/">
+  <meta property="og:image" content="https://dottoressa-myriam-rando.vercel.app/assets/images/doctor-hero.png">
+  <meta property="og:locale" content="it_IT">
 </head>
 
 <body>
@@ -18,7 +70,10 @@
 
     <!-- HERO -->
     <section class="hero">
-      <img src="../assets/images/doctor-hero.png" alt="Dott.ssa Rossi" class="hero-img">
+
+      <img src="../assets/images/doctor-hero.png" alt="Dott.ssa Myriam Rando, psicologa a Messina" class="hero-img"
+        width="1920" height="1080" fetchpriority="high" decoding="async">
+
       <div class="overlay"></div>
 
       <div class="hero-inner">
@@ -71,7 +126,7 @@
   </div>
 
   <!-- ABOUT -->
-  <section class="about section container split">
+  <section class="about section container split" aria-label="Chi sono">
     <div>
       <h2>Un approccio centrato sul paziente</h2>
       <p>
@@ -81,12 +136,13 @@
     </div>
 
     <div class="image-block">
-      <img src="../assets/images/doctor.jpg">
+      <img src="../assets/images/doctor.jpg" alt="Studio di psicologia Dott.ssa Myriam Rando, Messina" width="600"
+        height="800" loading="lazy" decoding="async">
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section class="services section container">
+  <section class="services section container" aria-label="Aree di supporto">
     <h2>Aree di supporto</h2>
     <p class="section-intro">
       Ogni percorso è unico, ma ci sono momenti in cui può essere utile fermarsi e chiedere supporto.
@@ -124,13 +180,15 @@
   </section>
 
   <!-- TARGET AUDIENCE -->
-  <section class="who container narrow">
+  <section class="who container narrow" aria-label="Per chi è indicato">
 
     <h2>Potrebbe esserti utile se…</h2>
 
-    <p class="reveal">Ti senti spesso sopraffatto o in difficoltà</p>
-    <p class="reveal">Hai bisogno di maggiore chiarezza in un momento importante</p>
-    <p class="reveal">Vuoi semplicemente capire meglio te stesso</p>
+    <ul>
+      <li class="reveal">Ti senti spesso sopraffatto o in difficoltà</li>
+      <li class="reveal">Hai bisogno di maggiore chiarezza in un momento importante</li>
+      <li class="reveal">Vuoi semplicemente capire meglio te stesso</li>
+    </ul>
 
   </section>
 
@@ -267,23 +325,24 @@
     </div>
 
     <div class="map">
-      <iframe src="https://www.google.com/maps?q=Messina&output=embed" loading="lazy">
+      <iframe src="https://www.google.com/maps?q=Messina&output=embed" loading="lazy"
+        title="Mappa dello studio di Dott.ssa Myriam Rando a Messina" aria-label="Mappa dello studio a Messina">
       </iframe>
     </div>
 
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="contact section container">
+  <section id="contact" class="contact section container" aria-label="Contattami">
     <h2>Contattami</h2>
     <p class="contact-reassurance">
       Ti risponderò personalmente entro 24 ore. Nessun impegno.
     </p>
     <form id="contactForm">
-      <input placeholder="Nome" name="name" required>
-      <input type="email" placeholder="mail@example.com" name="email" required>
-      <input type="tel" placeholder="Telefono (opzionale)" name="phone">
-      <select name="requestType" required>
+      <input aria-label="Nome" placeholder="Nome" name="name" required>
+      <input aria-label="Email" type="email" placeholder="mail@example.com" name="email" required>
+      <input aria-label="Telefono" type="tel" placeholder="Telefono (opzionale)" name="phone">
+      <select aria-label="Motivo del contatto" name="requestType" required>
         <option value="" disabled selected>Seleziona il motivo del contatto</option>
         <option value="primo-colloquio">Prenotare un primo colloquio</option>
         <option value="informazioni">Richiedere informazioni</option>
@@ -291,9 +350,10 @@
         <option value="online">Informazioni su colloqui online</option>
         <option value="altro">Altro</option>
       </select>
-      <textarea placeholder="Messaggio" name="message"></textarea>
-      <!--HONEY POT BOT-->
-      <input type="text" name="company" class="honeypot">
+      <textarea aria-label="Messaggio" placeholder="Messaggio" name="message"></textarea>
+
+      <!-- Honeypot: hidden from everyone, including screen readers -->
+      <input type="text" name="company" class="honeypot" aria-hidden="true" tabindex="-1" autocomplete="off">
 
       <button id="submit-btn" class="submit-btn" type="submit">Scrivimi senza impegno</button>
     </form>
@@ -324,7 +384,7 @@
       <!-- INFO -->
       <div class="footer-col">
         <h4>Informazioni</h4>
-        <p><a href="/privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="/privacy-policy.html" title="Privacy Policy – Dott.ssa Myriam Rando">Privacy Policy</a></p>
         <p><a href="/cookie-policy.html">Cookie Policy</a></p>
         <p><a href="/note-legali.html">Note legali</a></p>
       </div>
@@ -334,18 +394,18 @@
         <h4>Social</h4>
 
         <div class="social-links">
-          <a href="https://www.instagram.com/mente.sintetica/">
-            <i class="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/mente.sintetica/" aria-label="Seguimi su Instagram"
+            rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
-
-          <a href="https://it.linkedin.com/in/myriam-rando-752a90383">
-            <i class="fab fa-linkedin"></i>
+          <a href="https://it.linkedin.com/in/myriam-rando-752a90383"
+            aria-label="Profilo LinkedIn di Dott.ssa Myriam Rando" rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
           </a>
-
-          <a href="https://www.facebook.com/people/SinteticaMente/61578441935099/">
-            <i class="fab fa-facebook"></i>
+          <a href="https://www.facebook.com/people/SinteticaMente/61578441935099/"
+            aria-label="Pagina Facebook di SinteticaMente" rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-facebook" aria-hidden="true"></i>
           </a>
-
         </div>
       </div>
 
@@ -359,7 +419,7 @@
 
   <!-- Floating button -->
   <div class="whatsapp-float">
-    <img src="../assets/images/whatsapplogo.png" alt="WhatsApp">
+    <img src="../assets/images/whatsapplogo.png" alt="Contattami su WhatsApp" width="30" height="30">
     <!--
      <i class="fa-solid fa-phone style=color:white;"></i>
      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
