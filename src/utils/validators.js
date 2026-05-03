@@ -3,6 +3,7 @@ function isValidEmail(email) {
 }
 
 function isValidPhone(phone) {
+  phone = phone.trim().replaceAll(" ", "");
   return /^\+?[\d\s\-]{7,15}$/.test(String(phone));
 }
 
