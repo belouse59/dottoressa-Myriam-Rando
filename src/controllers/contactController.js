@@ -11,6 +11,7 @@ const { sendVerificationEmail } = require("../services/emailService");
 const { isValidEmail, isValidPhone } = require("../utils/validators");
 const { clean } = require("../utils/sanitizer");
 const loadTemplate = require("../utils/templateLoader");
+const { getLocalTimestamp } = require("../utils/dateFormat");
 
 // simple in-memory rate limit (replace with Redis later if needed)
 const rateMap = new Map();
@@ -46,10 +47,7 @@ async function handleContact(data) {
     data.email
   );
 
-  const timestamp = new Date()
-    .toISOString()
-    .split(".")[0]
-    .replace("T", " ");
+  const timestamp = getLocalTimestamp();
 
   /*
     CASE 1:
