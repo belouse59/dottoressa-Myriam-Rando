@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             error.classList.add("visible");
             consentBlock.scrollIntoView({ behavior: "smooth", block: "center" });
             return;
-
+        }
         const data = {
             name: form.name.value,
             email: form.email.value,
