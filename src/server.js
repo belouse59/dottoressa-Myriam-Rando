@@ -20,5 +20,5 @@ required.forEach(key => {
   }
 });
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on ${APP_URL}:${PORT}`);
 });
