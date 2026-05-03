@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.getElementById("submit-btn");
     const select = document.querySelector('select[name="requestType"]');
     const textarea = document.querySelector('textarea[name="message"]');
+    const consentBlock = document.querySelector(".consent-block");
+    const consent = document.getElementById('consent-checkbox');
+    const error = document.getElementById("consentError");
 
     select.addEventListener("change", () => {
         const templates = {
@@ -42,6 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         // honeypot spam protection
         if (form.company.value) return;
+        if (!consent.checked) {
+            e.preventDefault();
+            consentBlock.classList.add("error");
+            // 👇 THIS IS WHAT YOU FORGOT
+            error.classList.add("visible");
+            consentBlock.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
 
         const data = {
             name: form.name.value,
