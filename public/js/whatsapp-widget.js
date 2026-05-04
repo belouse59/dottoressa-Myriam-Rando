@@ -7,7 +7,7 @@ const input = document.getElementById("userMessage");
 const whatsappFloat = document.querySelector(".whatsapp-float");
 const whatsappCloseBtn = document.querySelector(".chat-close-btn");
 const quickActionsBtns = document.querySelectorAll(".quick-actions button");
-const quickActions = document.querySelectorAll(".quick-actions button");
+const quickActions = document.querySelector(".quick-actions");
 const submitChatBtn = document.getElementById("chat-submit-btn");
 const chat = document.getElementById("whatsappChat");
 
