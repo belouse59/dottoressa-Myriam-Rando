@@ -2,6 +2,7 @@
 require("dotenv").config();
 const app = require("./app");
 const PORT = process.env.PORT || 3001;
+const APP_URL = process.env.APP_URL;
 const required = [
   "ALLOWED_ORIGIN",
   "APP_URL",
@@ -20,5 +21,5 @@ required.forEach(key => {
   }
 });
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on ${APP_URL}:${PORT}`);
+  console.log(`🚀 Server running on ${APP_URL}`);
 });
