@@ -7,6 +7,7 @@ const input = document.getElementById("userMessage");
 const whatsappFloat = document.querySelector(".whatsapp-float");
 const whatsappCloseBtn = document.querySelector(".chat-close-btn");
 const quickActionsBtns = document.querySelectorAll(".quick-actions button");
+const quickActions = document.querySelectorAll(".quick-actions button");
 const submitChatBtn = document.getElementById("chat-submit-btn");
 const chat = document.getElementById("whatsappChat");
 
@@ -25,6 +26,7 @@ let hasEngaged = false;
 input.addEventListener("input", function () {
     this.style.height = "auto";
     this.style.height = this.scrollHeight + "px";
+     if (input.value.trim() === "") quickActions.style.display = "flex"; 
 });
 
 // Enter = send / Shift+Enter = newline
@@ -88,7 +90,7 @@ function selectPrompt(e) {
     input.value = selectedMessage;
     input.focus();
 
-    document.querySelector(".quick-actions").style.display = "none";
+   quickActions.style.display = "none";
 
     input.style.height = "auto";
     input.style.height = input.scrollHeight + "px";
