@@ -75,15 +75,15 @@ function selectPrompt(e) {
 
     switch (origin) {
         case "PrimoColloquio":
-            selectedMessage = "Buongiorno,\n\nvorrei prenotare un primo colloquio";
+            selectedMessage = "Buongiorno,\nvorrei prenotare un primo colloquio";
             break;
 
         case "RichiedereInformazioni":
-            selectedMessage = "Buongiorno,\n\nvorrei ricevere maggiori informazioni sul percorso";
+            selectedMessage = "Buongiorno,\nvorrei ricevere maggiori informazioni sul percorso";
             break;
 
         case "bisognoDiSupporto":
-            selectedMessage = "Buongiorno,\n\nsto attraversando un momento difficile e vorrei parlarne";
+            selectedMessage = "Buongiorno,\nsto attraversando un momento difficile e vorrei parlarne";
             break;
     }
 
@@ -105,7 +105,7 @@ function sendToWhatsApp() {
     const finalMessage =
         input.value.trim() ||
         selectedMessage ||
-        "Buongiorno,\n\nvorrei ricevere informazioni.";
+        "Buongiorno,\nvorrei ricevere informazioni.";
 
     const url =
         `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMessage)}`;
