@@ -17,6 +17,7 @@ if (!allowedOrigin) throw new Error("ALLOWED_ORIGIN env variable is not set");
 
 const allowedOrigins = [
   process.env.ALLOWED_ORIGIN,
+  process.env.ALLOWED_ORIGIN_WWW,
   /\.vercel\.app$/
 ];
 
