@@ -352,7 +352,23 @@
         <option value="altro">Altro</option>
       </select>
       <textarea aria-label="Messaggio" placeholder="Messaggio" name="message"></textarea>
-
+      <!-- GDPR BLOCK HERE 👇 -->
+      <div class="consent-block">
+        <label class="consent-item">
+          <input id="consent-checkbox" type="checkbox">
+          <span class="checkmark"></span>
+          <span class="consent-text">
+            Acconsento al trattamento dei miei dati personali secondo la
+            <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
+          </span>
+        </label>
+        <p class="consent-error" id="consentError">
+          È necessario accettare prima di continuare.
+        </p>
+        <p class="consent-note">
+          Le informazioni fornite saranno trattate con la massima discrezione e utilizzate unicamente per finalità di contatto.
+        </p>
+      </div>
       <!-- Honeypot: hidden from everyone, including screen readers -->
       <input type="text" name="company" class="honeypot" aria-hidden="true" tabindex="-1" autocomplete="off">
 
