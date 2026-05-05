@@ -12,7 +12,7 @@ const submitChatBtn = document.getElementById("chat-submit-btn");
 const chat = document.getElementById("whatsappChat");
 
 // State
-let selectedMessage = "";
+let selectedMessage = "Buongiorno,\n";
 let userInteracted = false;
 let inactivityTimer;
 let chatAlreadyOpened = false;
