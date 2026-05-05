@@ -105,7 +105,7 @@ function sendToWhatsApp() {
     const finalMessage =
         input.value.trim() ||
         selectedMessage ||
-        "Buongiorno, vorrei ricevere informazioni.";
+        "Buongiorno,\n\nvorrei ricevere informazioni.";
 
     const url =
         `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMessage)}`;
