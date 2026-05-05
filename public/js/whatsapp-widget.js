@@ -12,7 +12,7 @@ const submitChatBtn = document.getElementById("chat-submit-btn");
 const chat = document.getElementById("whatsappChat");
 
 // State
-let selectedMessage = "Buongiorno,\n";
+let selectedMessage = "";
 let userInteracted = false;
 let inactivityTimer;
 let chatAlreadyOpened = false;
@@ -75,15 +75,15 @@ function selectPrompt(e) {
 
     switch (origin) {
         case "PrimoColloquio":
-            selectedMessage += "Vorrei prenotare un primo colloquio";
+            selectedMessage = "Buongiorno,\n\nvorrei prenotare un primo colloquio";
             break;
 
         case "RichiedereInformazioni":
-            selectedMessage += "Vorrei ricevere maggiori informazioni sul percorso";
+            selectedMessage = "Buongiorno,\n\nvorrei ricevere maggiori informazioni sul percorso";
             break;
 
         case "bisognoDiSupporto":
-            selectedMessage += "Sto attraversando un momento difficile e vorrei parlarne";
+            selectedMessage = "Buongiorno,\n\nsto attraversando un momento difficile e vorrei parlarne";
             break;
     }
 
