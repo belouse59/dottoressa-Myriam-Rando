@@ -75,15 +75,15 @@ function selectPrompt(e) {
 
     switch (origin) {
         case "PrimoColloquio":
-            selectedMessage = "Vorrei prenotare un primo colloquio";
+            selectedMessage += "Vorrei prenotare un primo colloquio";
             break;
 
         case "RichiedereInformazioni":
-            selectedMessage = "Vorrei ricevere maggiori informazioni sul percorso";
+            selectedMessage += "Vorrei ricevere maggiori informazioni sul percorso";
             break;
 
         case "bisognoDiSupporto":
-            selectedMessage = "Sto attraversando un momento difficile e vorrei parlarne";
+            selectedMessage += "Sto attraversando un momento difficile e vorrei parlarne";
             break;
     }
 
