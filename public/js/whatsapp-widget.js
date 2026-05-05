@@ -115,6 +115,8 @@ function sendToWhatsApp() {
     // Reset input
     input.value = "";
     input.style.height = "auto";
+    quickActions.style.display = "flex";
+    toggleChat();
 }
 
 // ==========================
