@@ -15,10 +15,28 @@ app.use(helmet(CSP_CONFIG));
 const allowedOrigin = process.env.ALLOWED_ORIGIN;
 if (!allowedOrigin) throw new Error("ALLOWED_ORIGIN env variable is not set");
 
+const allowedOrigins = [
+  process.env.ALLOWED_ORIGIN,
+  /\.vercel\.app$/
+];
+
 app.use(cors({
-  origin: allowedOrigin,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+
+    const allowed = allowedOrigins.some(item =>
+      item instanceof RegExp
+        ? item.test(origin)
+        : item === origin
+    );
+
+    if (allowed) return callback(null, true);
+
+    callback(new Error("Not allowed by CORS"));
+  },
   methods: ["GET", "POST"]
 }));
+
 app.use(express.json());
 app.use(morgan("dev"));
 // any routes inside the corresponding routes will be prefixed with "/api/*"
