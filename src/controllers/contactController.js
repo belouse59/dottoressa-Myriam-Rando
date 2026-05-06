@@ -185,7 +185,6 @@ async function handleSimulator(data) {
 /* ---------------- MAIN ROUTER ---------------- */
 async function submitForm(req, res) {
   const data = req.body;
-  console.log(data);
   if (data.company) {
   // Silent discard — don't tell bots they were detected
   return res.status(200).json(respond("success", "Request processed"));
@@ -198,7 +197,7 @@ async function submitForm(req, res) {
     }
   }
 
-  if (!data || !data.formType || !data.consent) {
+  if (!data || !data.formType || data.consent !== "SI") {
     return res.status(400).json(respond("error", "Invalid data"));
   }
 
