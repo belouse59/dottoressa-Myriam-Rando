@@ -1,6 +1,9 @@
 const sheets = require("../config/google");
 const { getLocalTimestamp } = require("../utils/dateFormat");
+
 const SPREADSHEET_ID = process.env.SHEET_ID;
+
+/* ---------------- BASIC HELPERS ---------------- */
 
 async function appendRow(sheetName, values) {
   await sheets.spreadsheets.values.append({
@@ -22,12 +25,46 @@ async function getSheetValues(sheetName) {
   return res.data.values || [];
 }
 
-async function markEmailVerified(sheetName, email) {
+/* ---------------- HEADER MAPPING ---------------- */
+
+async function getHeaderMap(sheetName) {
   const rows = await getSheetValues(sheetName);
 
+  if (!rows.length) {
+    throw new Error(`Sheet "${sheetName}" is empty`);
+  }
+
+  const headers = rows[0];
+
+  const headerMap = {};
+
+  headers.forEach((header, index) => {
+    headerMap[header.trim()] = index;
+  });
+
+  return headerMap;
+}
+
+/* ---------------- EMAIL VERIFICATION ---------------- */
+
+async function markEmailVerified(sheetName, email) {
+  const rows = await getSheetValues(sheetName);
+  const headerMap = await getHeaderMap(sheetName);
+
+  const emailIndex = headerMap["Email"];
+  const verifiedIndex = headerMap["Verificato"];
+  const verifiedDateIndex = headerMap["Data e ora di verifica"];
+
+  if (
+    emailIndex === undefined ||
+    verifiedIndex === undefined ||
+    verifiedDateIndex === undefined
+  ) {
+    throw new Error("Required headers not found");
+  }
+
   const rowIndex = rows.findIndex(
-    (row, index) =>
-      index > 0 && row[2] === email
+    (row, index) => index > 0 && row[emailIndex] === email
   );
 
   if (rowIndex === -1) {
@@ -37,8 +74,8 @@ async function markEmailVerified(sheetName, email) {
   const actualRow = rowIndex + 1;
 
   await sheets.spreadsheets.values.update({
-    spreadsheetId: process.env.SHEET_ID,
-    range: `${sheetName}!H${actualRow}:I${actualRow}`,
+    spreadsheetId: SPREADSHEET_ID,
+    range: `${sheetName}!${columnToLetter(verifiedIndex + 1)}${actualRow}:${columnToLetter(verifiedDateIndex + 1)}${actualRow}`,
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [[
@@ -47,23 +84,32 @@ async function markEmailVerified(sheetName, email) {
       ]]
     }
   });
+
   return true;
-  
 }
+
+/* ---------------- EMAIL STATUS ---------------- */
 
 async function findEmailStatus(sheetName, email) {
   const rows = await getSheetValues(sheetName);
+  const headerMap = await getHeaderMap(sheetName);
+
+  const emailIndex = headerMap["Email"];
+  const verifiedIndex = headerMap["Verificato"];
+
+  if (emailIndex === undefined || verifiedIndex === undefined) {
+    throw new Error("Required headers not found");
+  }
 
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
 
-    const rowEmail = row[2];
-    const verified = row[7];
-
-    if (rowEmail === email) {
+    if (row[emailIndex] === email) {
       return {
         exists: true,
-        verified: verified === "true" || verified === "TRUE"
+        verified:
+          row[verifiedIndex] === "true" ||
+          row[verifiedIndex] === "TRUE"
       };
     }
   }
@@ -74,9 +120,25 @@ async function findEmailStatus(sheetName, email) {
   };
 }
 
+/* ---------------- UTIL ---------------- */
+
+function columnToLetter(column) {
+  let temp = "";
+  let letter = "";
+
+  while (column > 0) {
+    temp = (column - 1) % 26;
+    letter = String.fromCharCode(temp + 65) + letter;
+    column = (column - temp - 1) / 26;
+  }
+
+  return letter;
+}
+
 module.exports = {
   appendRow,
   getSheetValues,
   markEmailVerified,
-  findEmailStatus
+  findEmailStatus,
+  getHeaderMap
 };
