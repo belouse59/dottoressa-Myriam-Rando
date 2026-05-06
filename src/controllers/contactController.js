@@ -92,7 +92,8 @@ async function handleContact(data) {
       clean(data.message),
       "contact",
       "SI",
-      timestamp
+      timestamp,
+      clean(consent)
     ]);
 
     return respond(
@@ -115,7 +116,8 @@ async function handleContact(data) {
     clean(data.message),
     "contact",
     "NO",
-    ""
+    "",
+    clean(consent)
   ]);
 
   const token = generateToken(data.email);
@@ -183,6 +185,7 @@ async function handleSimulator(data) {
 /* ---------------- MAIN ROUTER ---------------- */
 async function submitForm(req, res) {
   const data = req.body;
+  console.log(data);
   if (data.company) {
   // Silent discard — don't tell bots they were detected
   return res.status(200).json(respond("success", "Request processed"));
