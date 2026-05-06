@@ -91,7 +91,7 @@ async function handleContact(data) {
       clean(data.requestType),
       clean(data.message),
       "contact",
-      "true",
+      "SI",
       timestamp
     ]);
 
@@ -114,7 +114,7 @@ async function handleContact(data) {
     clean(data.requestType),
     clean(data.message),
     "contact",
-    "false",
+    "NO",
     ""
   ]);
 
