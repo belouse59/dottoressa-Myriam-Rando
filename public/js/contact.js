@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
             phone: form.phone.value,
             message: form.message.value,
             requestType: form.requestType.value,
-            formType: "contact"
+            formType: "contact",
+            consent: consent.checked
         };
 
         status.innerText = "Invio in corso";
