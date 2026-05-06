@@ -79,7 +79,7 @@ async function markEmailVerified(sheetName, email) {
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [[
-        "true",
+        "SI",
         getLocalTimestamp()
       ]]
     }
@@ -107,9 +107,7 @@ async function findEmailStatus(sheetName, email) {
     if (row[emailIndex] === email) {
       return {
         exists: true,
-        verified:
-          row[verifiedIndex] === "true" ||
-          row[verifiedIndex] === "TRUE"
+        verified: row[verifiedIndex]?.trim().toUpperCase() === "SI"
       };
     }
   }
