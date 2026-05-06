@@ -93,7 +93,7 @@ async function handleContact(data) {
       "contact",
       "SI",
       timestamp,
-      clean(consent)
+      clean(data.consent)
     ]);
 
     return respond(
@@ -117,7 +117,7 @@ async function handleContact(data) {
     "contact",
     "NO",
     "",
-    clean(consent)
+    clean(data.consent)
   ]);
 
   const token = generateToken(data.email);
