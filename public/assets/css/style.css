@@ -87,6 +87,11 @@ section.visible {
 }
 
 /* HERO */
+.hero-wrapper {
+    max-width: 1920px;
+    margin: auto;
+}
+
 .hero {
     position: relative;
     height: 100vh;
@@ -800,6 +805,8 @@ button.success {
     background: rgba(14, 165, 164, 0.04);
     border-top: 1px solid var(--soft);
     padding-top: 80px;
+    max-width: 1920px;
+    margin: auto;
 }
 
 .footer::after {
