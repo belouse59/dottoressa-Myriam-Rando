@@ -188,14 +188,14 @@ async function submitForm(req, res) {
   return res.status(200).json(respond("success", "Request processed"));
 }
   // Reject if any field is not a primitive
-  const fields = ["email", "name", "phone", "message", "requestType", "formType"];
+  const fields = ["email", "name", "phone", "message", "requestType", "formType", "consent"];
   for (const field of fields) {
     if (data[field] !== undefined && typeof data[field] !== "string") {
       return res.status(400).json(respond("error", "Invalid input"));
     }
   }
 
-  if (!data || !data.formType) {
+  if (!data || !data.formType || !data.consent) {
     return res.status(400).json(respond("error", "Invalid data"));
   }
 
