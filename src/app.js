@@ -48,14 +48,28 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 // Catch unhandled errors — never expose internals
 app.use((err, req, res, next) => {
-  console.error(err); // log internally only
-  res.status(500).json({ status: "error", message: "Internal server error" });
+  console.error(err);
+
+  if (err.message === "Not allowed by CORS") {
+    const html = loadTemplate("server-error.html", {
+      APP_URL: process.env.APP_URL
+    });
+
+    return res.status(403).send(html);
+  }
+
+  const html = loadTemplate("server-error.html", {
+    APP_URL: process.env.APP_URL
+  });
+
+  res.status(500).send(html);
 });
+
 // health check
 app.get("/health", (req, res) => {
-    res.json({
-        status: "ok"
-    });
+  res.json({
+    status: "ok"
+  });
 });
 
 module.exports = app;
